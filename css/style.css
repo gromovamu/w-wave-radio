@@ -1959,14 +1959,10 @@ body {
 }
 
 .playlists__item {
-  position: relative;
-  display: flex;
-  flex-direction: column;
   margin-right: 30px;
   margin-bottom: 30px;
   width: calc((100% - 90px) / 4);
   border: 1px solid var(--style-color);
-  cursor: pointer;
 }
 
 .playlists__item:nth-child(4n) {
@@ -1975,6 +1971,14 @@ body {
 
 .playlists__item:nth-last-child(-n+4) {
   margin-bottom: 0;
+}
+
+.playlists__article {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  cursor: pointer;
 }
 
 .playlists__decor-container {

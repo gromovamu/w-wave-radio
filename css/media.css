@@ -127,7 +127,6 @@
   }
 
   .playlists__item {
-    flex-direction: row;
     width: calc((100% - 60px) / 3);
   }
 
@@ -145,6 +144,10 @@
 
   .playlists__item:nth-last-child(-n+3) {
     margin-bottom: 0;
+  }
+
+  .playlists__article {
+    flex-direction: row;
   }
 
   .playlists__decor-container {
@@ -1306,8 +1309,11 @@
   }
 
   .playlists__item {
-    flex-direction: column;
     margin-bottom: 30px;
+  }
+
+  .playlists__article {
+    flex-direction: column;
   }
 
   .playlists__decor-container {
