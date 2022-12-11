@@ -1002,7 +1002,7 @@
   }
 
   /* - podcasts - */
-  .podcasts__item {
+  .podcasts__article {
     flex-direction: column;
   }
 
@@ -1039,10 +1039,11 @@
   }
 
   .podcasts__statistic-list {
-    padding: 6px 34px 6px 34px;
+    padding: 6px 34px 5px 32px;
   }
 
-  .podcasts__statistic-style {
+  .podcasts__statistic-style,
+  .podcasts__statistic-btn {
     font-size: 12px;
     line-height: 12px;
   }
