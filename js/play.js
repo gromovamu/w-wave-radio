@@ -22,13 +22,13 @@ function addEventListenerForPlayBtns(className) {
   addEventListenerForPlayBtns('podcasts__play-btn');
 
   /*Добавляем обработчики на кнопок "играть" в секции "Плэйлисты" */
-  addEventListenerForPlayBtns('playlists__item');
+  addEventListenerForPlayBtns('playlists__article');
 
-  document.querySelectorAll('.playlists__item').forEach(function (playBtn) {
+  document.querySelectorAll('.playlists__article').forEach(function (playBtn) {
       playBtn.addEventListener('keydown', function(event) {
         if (event.code == 'Enter') {
-          stopCurrentPlay('playlists__item--active', playBtn);
-          playBtn.classList.toggle('playlists__item--active');
+          stopCurrentPlay('playlists__article--active', playBtn);
+          playBtn.classList.toggle('playlists__article--active');
         }
       });
   });

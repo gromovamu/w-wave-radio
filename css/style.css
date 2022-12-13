@@ -2113,60 +2113,60 @@ body {
 }
 
 /* animation playlists__item*/
-.playlists__item:focus-visible {
+.playlists__article:focus-visible {
   outline: none;
 }
 
-.playlists__item:focus-visible .playlists__btn-decor,
-.playlists__item:hover .playlists__btn-decor,
-.playlists__item:active .playlists__btn-decor,
-.playlists__item--active .playlists__btn-decor {
+.playlists__article:focus-visible .playlists__btn-decor,
+.playlists__article:hover .playlists__btn-decor,
+.playlists__article:active .playlists__btn-decor,
+.playlists__article--active .playlists__btn-decor {
   visibility: visible;
   opacity: 1;
 }
 
-.playlists__item:active .playlists__play-icon {
+.playlists__article:active .playlists__play-icon {
   transform: scale(1.2);
 }
 
-.playlists__item:focus-visible .playlists__content-container {
+.playlists__article:focus-visible .playlists__content-container {
   background-color: var(--main-color-light);
 }
 
-.playlists__item:focus-visible .playlists__descr {
+.playlists__article:focus-visible .playlists__descr {
   color: var(--text-color);
 }
 
-.playlists__item:hover .playlists__content-container {
+.playlists__article:hover .playlists__content-container {
   background-color: var(--main-color);
 }
 
-.playlists__item:active .playlists__content-container {
+.playlists__article:active .playlists__content-container {
   background-color: var(--main-color-dark);
 }
 
-.playlists__item:hover .playlists__descr,
-.playlists__item:hover .playlists__title,
-.playlists__item:active .playlists__descr,
-.playlists__item:active .playlists__title {
+.playlists__article:hover .playlists__descr,
+.playlists__article:hover .playlists__title,
+.playlists__article:active .playlists__descr,
+.playlists__article:active .playlists__title {
   color: var(--text-color-light);
 }
 
-.playlists__item--active .playlists__play-path {
+.playlists__article--active .playlists__play-path {
   fill: none;
 }
 
-.playlists__item--active .playlists__play-circle {
+.playlists__article--active .playlists__play-circle {
   fill: var(--text-color-dop);
 }
 
-.playlists__item--active .playlists__play-rect {
+.playlists__article--active .playlists__play-rect {
   fill: var(--text-color-light);
 }
 
-.playlists__item--active:focus-visible .playlists__play-circle,
-.playlists__item--active:hover .playlists__play-circle,
-.playlists__item--active:active .playlists__play-circle {
+.playlists__article--active:focus-visible .playlists__play-circle,
+.playlists__article--active:hover .playlists__play-circle,
+.playlists__article--active:active .playlists__play-circle {
   fill: var(--main-color);
 }
 
