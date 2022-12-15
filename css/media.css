@@ -616,6 +616,10 @@
     width: 80%;
   }
 
+  .footer__social-list {
+    justify-content: center;
+  }
+
   .footer__nav {
     width: 100%;
   }
@@ -1013,6 +1017,10 @@
     bottom: initial;
     left: 0;
     top: 0
+  }
+
+  .podcasts__time {
+    margin-bottom: 6px;
   }
 
   .podcasts__title,
@@ -1632,4 +1640,3 @@
   display: none;
 }
 */
-
