@@ -1,3 +1,5 @@
+let classPlayNames=['header__play-btn','podcasts__play-btn','playlists__article'];
+
 function stopCurrentPlay(className, currentBtn) {
   document.querySelectorAll('.' + className).forEach(function (activePlayBtn) {
       if (activePlayBtn != currentBtn) {
@@ -6,34 +8,50 @@ function stopCurrentPlay(className, currentBtn) {
   });
 }
 
+function listenerForPlayBtns(className, activeBtn) {
+  /*выключаем все, что играет*/
+  classPlayNames.forEach(function(classPlayName) {
+    stopCurrentPlay(classPlayName + '--active', activeBtn);
+  });
+
+  if ( activeBtn.classList.contains(className + '--active') )
+  {
+    activeBtn.classList.remove(className + '--active');
+    /*здесь длолжны быть функции для остановки воспроизведения */
+  }
+  else {
+    activeBtn.classList.add(className + '--active');
+    /*здесь длолжны быть функции для запуска воспроизведения */
+  }
+}
+
 function addEventListenerForPlayBtns(className) {
   document.querySelectorAll('.' + className).forEach(function (playBtn) {
     playBtn.addEventListener('click', function () {
-      stopCurrentPlay(className + '--active', playBtn);
-      playBtn.classList.toggle(className + '--active');
+      listenerForPlayBtns(className, playBtn);
     });
   });
 }
 
-/*Добавляем обработчики на кнопок "играть" в заголовке */
+/*Добавляем обработчики для кнопок "играть" в заголовке */
   addEventListenerForPlayBtns('header__play-btn');
 
-/*Добавляем обработчики на кнопок "играть" в секции "Подкасты" */
+/*Добавляем обработчики для кнопок "играть" в секции "Подкасты" */
   addEventListenerForPlayBtns('podcasts__play-btn');
 
-  /*Добавляем обработчики на кнопок "играть" в секции "Плэйлисты" */
+/*Добавляем обработчики для кнопок "играть" в секции "Плэйлисты" */
   addEventListenerForPlayBtns('playlists__article');
 
+/*Добавляем обработчики для кнопок "играть" в секции "Плэйлисты" при управлении с клавиатуры */
   document.querySelectorAll('.playlists__article').forEach(function (playBtn) {
       playBtn.addEventListener('keydown', function(event) {
         if (event.code == 'Enter') {
-          stopCurrentPlay('playlists__article--active', playBtn);
-          playBtn.classList.toggle('playlists__article--active');
+          listenerForPlayBtns('playlists__article', playBtn);
         }
       });
   });
 
-  /* добавляем обработчик на кнопку "Что в эфире" */
+  /* добавляем обработчик на кнопку "Что в эфире" для открытия под меню с кнопками */
   let openPlayBtn = document.querySelector('.header__broadcast');
   let playConatiner = document.querySelector('.header__play-container');
   let headerBottom = document.querySelector('.header__bottom');
