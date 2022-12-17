@@ -814,6 +814,36 @@ body {
   fill: var(--main-color-dark);
 }
 
+/* --- animation play name --- */
+@keyframes play-anim {
+  0% {
+    transform: translateX(0);
+  }
+  50% {
+    transform: translateX(100%);
+  }
+  50.1% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+
+.header__play-content {
+  overflow: hidden;
+}
+
+/*
+.animation--play {
+  animation: play-anim 5s normal linear infinite;
+}*/
+
+/* так проще добавить анимацию, чем связывать их через js-скрипт*/
+.header__play-btn--active + .header__play-content .header__play-name {
+  animation: play-anim 5s normal linear infinite;
+}
+
 /*  --- hero ---   */
 .hero {
   color: var(--text-color);
@@ -1209,6 +1239,25 @@ body {
   border-color: var(--main-color-dark);
   color: var(--text-color-light);
   background-color: var(--main-color-dark);
+}
+
+/* animation podcasts-play*/
+@keyframes scale-anim-play {
+  0%{
+    transform: scale(1);
+  }
+
+  50%{
+    transform: scale(1.2);
+  }
+
+  100%{
+    transform: scale(1);
+  }
+}
+
+.podcasts__play-btn--active .podcasts__play-icon {
+  animation: scale-anim-play 1.5s normal linear infinite;
 }
 
 /*   --- broadcasts ---   */
@@ -2181,6 +2230,11 @@ body {
 .playlists__article--active:hover .playlists__play-circle,
 .playlists__article--active:active .playlists__play-circle {
   fill: var(--main-color);
+}
+
+/* animation playlists__article--active*/
+.playlists__article--active .playlists__play-icon {
+  animation: scale-anim-play 1.5s normal linear infinite;
 }
 
 /*   --- promo ---   */
