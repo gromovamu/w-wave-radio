@@ -861,7 +861,7 @@
 
   .entrance__descr {
     font-size: 12px;
-    line-height: 24px;
+    line-height: 12px;
   }
 
   .entrance__form {
@@ -869,11 +869,21 @@
     width: 70%;
   }
 
+  .entrance__input-container {
+    margin-bottom: 20px;
+  }
+
   .entrance__input {
     padding: 10px 16px;
-    margin-bottom: 20px;
     font-size: 16px;
     line-height: 16px;
+  }
+
+  .entrance__input+.js-validate-error-label {
+    top: 2px;
+    left: 16px;
+    font-size: 9px;
+    line-height: 9px;
   }
 
   .entrance__btn {

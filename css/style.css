@@ -681,9 +681,19 @@ body {
   border-bottom: 1px solid rgba(230, 232, 236, 0.4);
 }
 
-.entrance__input {
-  padding: 24px 31px;
+/*entrance__input-container  нужен для того чтобы позиционировть сообещения об ошибках, если они появятся */
+.entrance__input-container {
+  position: relative;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  border: none;
   margin-bottom: 30px;
+}
+
+.entrance__input {
+  position: relative;
+  padding: 24px 31px;
   width: 100%;
   border: 1px solid var(--text-color-light);
   border-radius: 40px;
@@ -729,6 +739,24 @@ body {
 
 .entrance__social-item:last-child {
   margin-right: 0;
+}
+
+/* validated style*/
+.js-validate-error-label {
+  position: absolute;
+  top: 0px;
+  left: 32px;
+  z-index: 100;
+
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 12px;
+  color: #D52B1E;
+}
+
+.entrance__input+.js-validate-error-label {
+  top: 9px;
+  left: 32px;
 }
 
 /* - animation for entrance */
@@ -819,12 +847,15 @@ body {
   0% {
     transform: translateX(0);
   }
+
   50% {
     transform: translateX(100%);
   }
+
   50.1% {
     transform: translateX(-100%);
   }
+
   100% {
     transform: translateX(0);
   }
@@ -840,7 +871,7 @@ body {
 }*/
 
 /* так проще добавить анимацию, чем связывать их через js-скрипт*/
-.header__play-btn--active + .header__play-content .header__play-name {
+.header__play-btn--active+.header__play-content .header__play-name {
   animation: play-anim 5s normal linear infinite;
 }
 
@@ -1243,15 +1274,15 @@ body {
 
 /* animation podcasts-play*/
 @keyframes scale-anim-play {
-  0%{
+  0% {
     transform: scale(1);
   }
 
-  50%{
+  50% {
     transform: scale(1.2);
   }
 
-  100%{
+  100% {
     transform: scale(1);
   }
 }
@@ -1731,10 +1762,13 @@ body {
 }
 
 .guests__item-name-btn--active {
-  color:var(--main-color-light);
+  color: var(--main-color-light);
 }
 
-.ui-widget input, .ui-widget select, .ui-widget textarea, .ui-widget button {
+.ui-widget input,
+.ui-widget select,
+.ui-widget textarea,
+.ui-widget button {
   font-family: 'Muller';
   font-style: normal;
   font-weight: 400;
@@ -2606,18 +2640,6 @@ body {
 }
 
 /* validated style*/
-.js-validate-error-label {
-  position: absolute;
-  top: 0px;
-  left: 32px;
-  z-index: 100;
-
-  font-weight: 400;
-  font-size: 12px;
-  line-height: 12px;
-  color: #D52B1E;
-}
-
 .feedback__message+.js-validate-error-label {
   top: 9px;
 }

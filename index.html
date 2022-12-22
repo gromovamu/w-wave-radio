@@ -125,9 +125,13 @@
 
         <form class="entrance__form" action="https://jsonplaceholder.typicode.com/posts" method="POST">
 
-          <input class="entrance__input" type="text" placeholder="Логин" required>
+          <fieldset class="entrance__input-container">
+            <input class="entrance__input" type="text" placeholder="Логин" data-validate-field="login" required>
+          </fieldset>
 
-          <input class="entrance__input" type="password" placeholder="Пароль" required>
+          <fieldset class="entrance__input-container">
+            <input class="entrance__input" type="password" placeholder="Пароль" data-validate-field="password" required>
+          </fieldset>
 
           <button class="button entrance__btn">
             Войти
