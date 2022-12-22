@@ -13,39 +13,55 @@ let guestsName = document.querySelector('.guests__name');
 let guestsBiography = document.querySelector('.guests__biography');
 let guests__img =  document.querySelector('.guests__img');
 
+function makeGuestCard(name, widthWin) {
+  guestsName.textContent = name;
+  guestCards.forEach(function (guest) {
+    if (name.indexOf(guest.name, 0) != -1) {
+      guestsBiography.textContent = guest.biography;
+
+      if (widthWin<=1020 && widthWin>576) {
+        if ( guest.imgUrl_dop) {
+          guests__img.src =  guest.imgUrl_dop;
+        }
+      }
+      else {
+        if ( guest.imgUrl) {
+          guests__img.src =  guest.imgUrl;
+        }
+      }
+    }
+    else {
+      guestsBiography.textContent = "";
+      guests__img.src =  "img/guests/guests-plug-img.jpg";
+      if (widthWin<=1020 && widthWin>576) {
+        guests__img.src =  "img/guests/768/guests-plug-img-768.jpg";
+      }
+      else {
+        guests__img.src =  "img/guests/guests-plug-img.jpg";
+      }
+    }
+  });
+}
+
+function removeGuestBtnActiveClass() {
+  document.querySelectorAll('.guests__item-name-btn--active').forEach(function (guest) {
+    guest.classList.remove('guests__item-name-btn--active');
+  });
+}
+
+// сформируем карточку гостя, отображаемую по умолчанию
+makeGuestCard("Ольга Мартынова", window.innerWidth);
+
 /* подвесим обработчики на имена гостей */
 document.querySelectorAll('.guests__item-name-btn').forEach(function (guestItem) {
   guestItem.addEventListener('click', function () {
     /* Заменим имя в карточке и добавим биографию*/
     let name = guestItem.textContent;
     let widthWin =  window.innerWidth;
-    guestsName.textContent = name;
-    guestCards.forEach(function (guest) {
-      if (name.indexOf(guest.name, 0) != -1) {
-        guestsBiography.textContent = guest.biography;
 
-        if (widthWin<=1020 && widthWin>576) {
-          if ( guest.imgUrl_dop) {
-            guests__img.src =  guest.imgUrl_dop;
-          }
-        }
-        else {
-          if ( guest.imgUrl) {
-            guests__img.src =  guest.imgUrl;
-          }
-        }
-      }
-      else {
-        guestsBiography.textContent = "";
-        guests__img.src =  "img/guests/guests-plug-img.jpg";
-        if (widthWin<=1020 && widthWin>576) {
-          guests__img.src =  "img/guests/768/guests-plug-img-768.jpg";
-        }
-        else {
-          guests__img.src =  "img/guests/guests-plug-img.jpg";
-        }
-      }
-    });
+    removeGuestBtnActiveClass();
+    guestItem.classList.add('guests__item-name-btn--active');
+    makeGuestCard(name, widthWin);
 
     /* откроем карточку с гостем */
     infoCard.classList.add('guests__info-card--visible');
@@ -63,7 +79,12 @@ document.querySelectorAll('.guests__item-name-btn').forEach(function (guestItem)
 /* подвесим обработчик на закрытие аккардеона */
 document.querySelectorAll('.guests__accordion-header').forEach(function (accordionHeader) {
   accordionHeader.addEventListener('click', function () {
+
     /* закроем карточку с гостем */
-    infoCard.classList.remove('guests__info-card--visible');
+    if( !this.classList.contains('ui-accordion-header-active') ) {
+      removeGuestBtnActiveClass();
+      infoCard.classList.remove('guests__info-card--visible');
+    }
   });
 });
+
