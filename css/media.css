@@ -774,6 +774,7 @@
 
   .header__bottom {
     max-height: 0;
+    transition: all 0.4s ease-out;
   }
 
   .header__play-container {
@@ -783,17 +784,19 @@
     width: 100%;
     transform: translateY(-100%);
     opacity: 0;
-    transition: transform 0.5s ease-out, opacity 0.5s ease-out;
+    transition: transform 0.4s ease-out, opacity 0.4s ease-out, visibility 0.4s ease-out;
   }
 
   .header__play-container--opened {
     visibility: visible;
     transform: translateY(0);
     opacity: 1;
+    transition: transform 0.4s ease-out, opacity 0.7s ease-out, visibility 0.4s ease-out;
   }
 
   .header__bottom--opened {
-    max-height: initial;
+    max-height: 100px;
+    transition: all 0.4s ease-out;
   }
 
   .header__play {
